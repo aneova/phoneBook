@@ -1,0 +1,43 @@
+<div class="card p-2 m-2">
+  <h1 class="text-center">Edit record</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputFname">First name</label>
+        <input type="text" class="form-control" id="inputFname" formControlName="fname" placeholder="First name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputSname">Second name</label>
+        <input type="text" class="form-control" id="inputSname" formControlName="sname" placeholder="Second name">
+      </div>
+      <div class="validation ml-2" *ngIf="(form.get('fname').touched || form.get('sname').touched)
+            && (form.get('fname').value==='' && form.get('sname').value==='')">
+        <small class="text-danger">ERROR: Please, fill out any field: First name or Second name</small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="inputEmail4"  formControlName="email" placeholder="Email">
+        <div class="validation" *ngIf="(form.get('email').touched && form.get('email').invalid)">
+          <small class="text-danger">ERROR: Please fill out correct email address</small>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPhone">Phone</label>
+        <input type="text" class="form-control" id="inputPhone" formControlName="phone" placeholder="phone">
+        <div class="validation" *ngIf="(form.get('phone').touched && form.get('phone').invalid)">
+          <small class="text-danger">ERROR: Please enter a valid phone number ...</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputNotes">Notes</label>
+      <input type="text" class="form-control" id="inputNotes" formControlName="notes"  placeholder="Notes">
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-info" [disabled]="form.invalid"> Save</button>
+    </div>
+    <input type="hidden" formControlName="id">
+  </form>
+</div>

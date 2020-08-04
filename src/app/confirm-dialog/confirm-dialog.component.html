@@ -1,0 +1,14 @@
+<div class="header">
+  <h2 mat-dialog-title>{{ data.title }}</h2>
+</div>
+<div mat-dialog-content>
+  <p class="dialog-message">{{ data.message }}</p>
+</div>
+<div mat-dialog-actions class="text-center">
+  <button mat-raised-button color="primary" (click)="confirm()"
+          aria-label="Button that displays a tooltip when focused or hovered over">Delete
+  </button>
+  <button class="ml-2" mat-raised-button color="primary" (click)="cancel()"
+          aria-label="Button that displays a tooltip when focused or hovered over">Cancel
+  </button>
+</div>
