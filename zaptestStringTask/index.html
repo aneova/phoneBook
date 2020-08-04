@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zaptest string Splitter</title>
+  <script>
+    function splitString(str, splitter) {
+
+      if (!splitter || splitter.length === 0) return [str];
+      if (!str || str.length === 0) return [];
+
+      let result = [];
+      let j = 0;
+      let lastPosition = 0;
+
+      for (let i=0; i<=str.length;) {
+        if (i == str.length || str.substr(i, splitter.length) == splitter)
+        {
+          if (lastPosition != i)
+          {
+            result[j++] = str.substr(lastPosition, i-lastPosition);
+            result[j++] = splitter;
+          }
+          lastPosition = i + splitter.length;
+          i += splitter.length;
+        } else i++;
+      }
+      alert(result);
+      return result;
+    }
+  </script>
+</head>
+<body>
+<button type="button" onclick="splitString('ABBCCDDEEBBAABB','BB')">Try it</button>
+</body>
+</html>
