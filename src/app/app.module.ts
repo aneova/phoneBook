@@ -31,6 +31,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatButtonToggleModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateRecordComponent, EditRecordComponent]
 })
 export class AppModule { }

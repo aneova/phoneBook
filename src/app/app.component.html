@@ -40,8 +40,8 @@
         <span>{{item?.notes}}</span>
       </td>
       <td class="float-right">
-        <mat-button-toggle><mat-icon (click)="editRecord(item.id)"color="primary">edit</mat-icon></mat-button-toggle>
-        <mat-button-toggle><mat-icon (click)="deleteRecord(item.id)" color="warn">delete</mat-icon></mat-button-toggle>
+        <mat-button-toggle (click)="editRecord(item.id)"><mat-icon color="primary">edit</mat-icon></mat-button-toggle>
+        <mat-button-toggle  (click)="deleteRecord(item.id)" ><mat-icon color="warn">delete</mat-icon></mat-button-toggle>
       </td>
     </tbody>
 

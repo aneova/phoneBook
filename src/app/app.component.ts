@@ -43,10 +43,11 @@ export class AppComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       data => {
+        if (data) {
           this.phoneBook.push(data);
           this.newID = this.phoneBook.length;
-      }
-    );
+        }
+    });
   }
 
   editRecord(id: number): void {
