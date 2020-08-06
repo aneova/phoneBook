@@ -11,21 +11,22 @@ export interface PhoneRecord {
   notes: string;
 }
 
+const phoneBook: PhoneRecord[] = [];
 
 @Injectable({providedIn: 'root'})
 export class CreateRecordNotifierService {
-
-  public phoneBook: PhoneRecord[] = [];
 
   constructor() { }
 
 
 fetchRecords(): Observable < PhoneRecord[] > {
-    return of(this.phoneBook);
+  console.log(phoneBook);
+  return of(phoneBook);
   }
 
 addRecord(phoneRecord: PhoneRecord): void  {
-    this.phoneBook.push(phoneRecord);
+  console.log(phoneBook);
+  phoneBook.push(phoneRecord);
   }
 
 }

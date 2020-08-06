@@ -28,8 +28,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.createRecordNotifierService.fetchRecords()
       .pipe()
-      .subscribe(res =>
-        this.phoneBook = res
+      .subscribe(res => {
+          this.phoneBook = res;
+        }
       );
   }
 
@@ -44,7 +45,14 @@ export class AppComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       data => {
         if (data) {
-          this.phoneBook.push(data);
+
+          this.createRecordNotifierService.fetchRecords()
+            .pipe()
+            .subscribe(res =>
+            {
+              this.phoneBook.concat(res);
+            }
+        );
           this.newID = this.phoneBook.length;
         }
     });
